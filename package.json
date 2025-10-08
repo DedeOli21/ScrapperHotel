@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node src/infra/http/server.js",
-    "dev": "nodemon src/infra/http/server.js",
+    "start": "node src/main/server.js",
+    "dev": "nodemon src/main/server.js",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage"
