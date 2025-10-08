@@ -157,7 +157,7 @@ describe('SearchRoomsUseCase - Success Scenarios', () => {
     
     expect(roomRepositoryMock.findAvailableRooms).toHaveBeenCalledTimes(1);
     
-    expect(loggerMock.info).toHaveBeenCalledTimes(2);
+    expect(loggerMock.info).toHaveBeenCalledTimes(3);
     expect(loggerMock.info).toHaveBeenCalledWith(expect.any(Object), 'SearchRoomsUseCase: Starting execution');
     expect(loggerMock.info).toHaveBeenLastCalledWith(
       expect.objectContaining({ roomsCount: roomsFromRepo.length }),
