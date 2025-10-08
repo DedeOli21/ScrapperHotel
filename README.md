@@ -86,7 +86,12 @@ npm test: Executa a suíte de testes completa.
 
 npm run test:watch: Executa os testes em modo "watch".
 
+
 npm run test:coverage: Executa os testes e gera um relatório de cobertura.
 
 ⚙️ Qualidade de Código
 O projeto utiliza um hook de pre-commit com Husky. Antes de cada commit, o ESLint e o Jest são executados automaticamente. Se houver erros de lint ou se algum teste falhar, o commit será bloqueado, garantindo a integridade e a qualidade do código no repositório.
+
+<img width="717" height="385" alt="image" src="https://github.com/user-attachments/assets/5485b311-6c59-441f-87d3-40159af2c3a4" />
+<img width="1231" height="947" alt="image" src="https://github.com/user-attachments/assets/e3f2ab9e-c28d-4ee8-977b-66b433102e65" />
+
