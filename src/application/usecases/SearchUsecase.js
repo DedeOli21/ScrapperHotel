@@ -1,4 +1,4 @@
-const DateRange = require('../../domain/utils/DateRange');
+const DateRange = require('../../domain/value-objects/DateRange');
 const ValidationError = require('../../domain/errors/ValidationError');
 const AppError = require('../../domain/errors/AppError');
 
@@ -20,12 +20,10 @@ class SearchRoomsUseCase {
         'SearchRoomsUseCase: Starting execution'
       );
       
-      // ✅ A validação agora está DENTRO do bloco try
       this.validateInput(input, startTime);
 
       const dateRange = new DateRange(input.checkin, input.checkout);
 
-      // ... resto do seu código dentro do try
       this.logger.info(
         { 
           checkin: dateRange.checkin,
