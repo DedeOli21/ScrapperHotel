@@ -1,232 +1,92 @@
-Desafio Asksuite - Web Scraper de Quartos de Hotel
-Este projeto consiste em uma API Node.js cuja principal função é realizar web scraping em um site de reservas de hotel. A aplicação busca por quartos disponíveis com base em datas de check-in e check-out fornecidas pelo usuário.
+🏨 Scrapper Hotel - Desafio Asksuite
+Esta é uma API RESTful desenvolvida em Node.js que realiza web scraping em um site de reservas para encontrar quartos de hotel disponíveis, com base nas datas de check-in e check-out fornecidas.
 
-O projeto foi desenvolvido seguindo os princípios da Arquitetura Limpa e SOLID, garantindo um código desacoplado, testável e de fácil manutenção.
+O projeto foi construído seguindo os princípios de Arquitetura Limpa e SOLID, resultando em um código modular, testável e de fácil manutenção, ideal para ambientes de produção.
 
-Estrutura do Projeto
-A arquitetura do projeto é dividida em camadas, cada uma com uma responsabilidade clara, garantindo a separação de conceitos e o fluxo de dependência correto (de fora para dentro).
+✨ Features
+Busca de Quartos: Endpoint para consultar disponibilidade de quartos via web scraping.
 
-domain: A camada mais interna da aplicação. Contém as entidades de negócio puras (como Room), objetos de valor (DateRange) e erros de domínio. Esta camada não tem conhecimento sobre o restante da aplicação.
+Qualidade de Código Automatizada: Hooks de pré-commit com Husky para rodar lint e testes.
 
-application: Contém a lógica de negócio específica da aplicação, orquestrada através de Casos de Uso (Use Cases). Ela define as interfaces (contratos) que a camada de infraestrutura deve implementar.
+Ambiente Padronizado: Configuração completa com Docker para garantir consistência entre ambientes.
 
-infrastructure: A camada mais externa, responsável por todos os detalhes técnicos e interação com o mundo exterior. Aqui ficam as implementações de serviços externos (como o scraper com Puppeteer), controllers da API, rotas, e configurações do servidor.
+Arquitetura Robusta: Separação clara de responsabilidades em camadas (domain, application, infrastructure).
 
-main: A raiz da composição. É o ponto de entrada da aplicação, responsável por instanciar e conectar ("injetar") todas as dependências das outras camadas.
+🏛️ Estrutura do Projeto
+A arquitetura é dividida em camadas para garantir o desacoplamento e a separação de conceitos:
 
+domain: O coração da aplicação. Contém as entidades de negócio (Room), objetos de valor (DateRange) e erros de domínio. É totalmente independente de frameworks e detalhes externos.
 
-Principais Ferramentas
+application: Orquestra a lógica de negócio através de Casos de Uso (Use Cases) e define os contratos (interfaces) que a camada de infraestrutura deve seguir.
+
+infrastructure: A camada externa. Contém as implementações de detalhes técnicos como o servidor web (Express), o serviço de scraping (Puppeteer), controllers, rotas e configurações.
+
+main: A raiz da composição. Ponto de entrada que instancia e conecta todas as peças da aplicação através de injeção de dependência.
+
+🛠️ Principais Ferramentas
 Ferramenta	Descrição
-Node.js	Ambiente de execução para o JavaScript no servidor.
-Express.js	Framework web minimalista para a criação da API e gerenciamento de rotas.
-Puppeteer	Biblioteca para automação e controle de navegadores headless (Chromium), utilizada para a extração dos dados do site (web scraping).
-Jest	Framework de testes para garantir a qualidade e o funcionamento correto da lógica de negócio e dos componentes da aplicação.
-ESLint	Ferramenta para análise estática de código que ajuda a encontrar e corrigir problemas de padronização e potenciais bugs.
-Husky & lint-staged	Ferramentas que automatizam a verificação de qualidade do código (lint e testes) antes de cada commit, garantindo a integridade do repositório.
-Docker	Plataforma de contêineres utilizada para criar um ambiente padronizado e portátil para a aplicação, facilitando a execução em qualquer máquina.
-Dotenv	Módulo para carregar variáveis de ambiente a partir de um arquivo .env, mantendo as configurações sensíveis fora do código.
-Pino	Logger de alta performance para registrar eventos e erros da aplicação de forma estruturada.
-
-
-Claro! Aqui está uma documentação completa no formato README.md para o seu projeto, detalhando as ferramentas e a estrutura de alto nível, como solicitado.
-
-Desafio Asksuite - Web Scraper de Quartos de Hotel
-Este projeto consiste em uma API Node.js cuja principal função é realizar web scraping em um site de reservas de hotel. A aplicação busca por quartos disponíveis com base em datas de check-in e check-out fornecidas pelo usuário.
-
-O projeto foi desenvolvido seguindo os princípios da Arquitetura Limpa e SOLID, garantindo um código desacoplado, testável e de fácil manutenção.
-
-Estrutura do Projeto
-A arquitetura do projeto é dividida em camadas, cada uma com uma responsabilidade clara, garantindo a separação de conceitos e o fluxo de dependência correto (de fora para dentro).
-
-domain: A camada mais interna da aplicação. Contém as entidades de negócio puras (como Room), objetos de valor (DateRange) e erros de domínio. Esta camada não tem conhecimento sobre o restante da aplicação.
-
-application: Contém a lógica de negócio específica da aplicação, orquestrada através de Casos de Uso (Use Cases). Ela define as interfaces (contratos) que a camada de infraestrutura deve implementar.
-
-infrastructure: A camada mais externa, responsável por todos os detalhes técnicos e interação com o mundo exterior. Aqui ficam as implementações de serviços externos (como o scraper com Puppeteer), controllers da API, rotas, e configurações do servidor.
-
-main: A raiz da composição. É o ponto de entrada da aplicação, responsável por instanciar e conectar ("injetar") todas as dependências das outras camadas.
-
-Principais Ferramentas
-Ferramenta	Descrição
-Node.js	Ambiente de execução para o JavaScript no servidor.
-Express.js	Framework web minimalista para a criação da API e gerenciamento de rotas.
-Puppeteer	Biblioteca para automação e controle de navegadores headless (Chromium), utilizada para a extração dos dados do site (web scraping).
-Jest	Framework de testes para garantir a qualidade e o funcionamento correto da lógica de negócio e dos componentes da aplicação.
-ESLint	Ferramenta para análise estática de código que ajuda a encontrar e corrigir problemas de padronização e potenciais bugs.
-Husky & lint-staged	Ferramentas que automatizam a verificação de qualidade do código (lint e testes) antes de cada commit, garantindo a integridade do repositório.
-Docker	Plataforma de contêineres utilizada para criar um ambiente padronizado e portátil para a aplicação, facilitando a execução em qualquer máquina.
-Dotenv	Módulo para carregar variáveis de ambiente a partir de um arquivo .env, mantendo as configurações sensíveis fora do código.
-Pino	Logger de alta performance para registrar eventos e erros da aplicação de forma estruturada.
-
-Pré-requisitos
-Para executar este projeto, você precisará ter as seguintes ferramentas instaladas:
-
-Node.js (versão 20 ou superior)
-
-Docker e Docker Compose
-
-Claro! Aqui está uma documentação completa no formato README.md para o seu projeto, detalhando as ferramentas e a estrutura de alto nível, como solicitado.
-
-Desafio Asksuite - Web Scraper de Quartos de Hotel
-Este projeto consiste em uma API Node.js cuja principal função é realizar web scraping em um site de reservas de hotel. A aplicação busca por quartos disponíveis com base em datas de check-in e check-out fornecidas pelo usuário.
-
-O projeto foi desenvolvido seguindo os princípios da Arquitetura Limpa e SOLID, garantindo um código desacoplado, testável e de fácil manutenção.
-
-Estrutura do Projeto
-A arquitetura do projeto é dividida em camadas, cada uma com uma responsabilidade clara, garantindo a separação de conceitos e o fluxo de dependência correto (de fora para dentro).
-
-domain: A camada mais interna da aplicação. Contém as entidades de negócio puras (como Room), objetos de valor (DateRange) e erros de domínio. Esta camada não tem conhecimento sobre o restante da aplicação.
-
-application: Contém a lógica de negócio específica da aplicação, orquestrada através de Casos de Uso (Use Cases). Ela define as interfaces (contratos) que a camada de infraestrutura deve implementar.
-
-infrastructure: A camada mais externa, responsável por todos os detalhes técnicos e interação com o mundo exterior. Aqui ficam as implementações de serviços externos (como o scraper com Puppeteer), controllers da API, rotas, e configurações do servidor.
-
-main: A raiz da composição. É o ponto de entrada da aplicação, responsável por instanciar e conectar ("injetar") todas as dependências das outras camadas.
-
-Principais Ferramentas
-Ferramenta	Descrição
-Node.js	Ambiente de execução para o JavaScript no servidor.
-Express.js	Framework web minimalista para a criação da API e gerenciamento de rotas.
-Puppeteer	Biblioteca para automação e controle de navegadores headless (Chromium), utilizada para a extração dos dados do site (web scraping).
-Jest	Framework de testes para garantir a qualidade e o funcionamento correto da lógica de negócio e dos componentes da aplicação.
-ESLint	Ferramenta para análise estática de código que ajuda a encontrar e corrigir problemas de padronização e potenciais bugs.
-Husky & lint-staged	Ferramentas que automatizam a verificação de qualidade do código (lint e testes) antes de cada commit, garantindo a integridade do repositório.
-Docker	Plataforma de contêineres utilizada para criar um ambiente padronizado e portátil para a aplicação, facilitando a execução em qualquer máquina.
-Dotenv	Módulo para carregar variáveis de ambiente a partir de um arquivo .env, mantendo as configurações sensíveis fora do código.
-Pino	Logger de alta performance para registrar eventos e erros da aplicação de forma estruturada.
+Node.js	Ambiente de execução JavaScript no servidor.
+Express.js	Framework para a criação da API e gerenciamento de rotas.
+Puppeteer	Biblioteca para automação de navegadores, utilizada para o web scraping.
+Jest	Framework para testes unitários e de integração.
+ESLint	Ferramenta para padronização e análise estática do código.
+Husky & lint-staged	Automatizam a verificação de qualidade do código antes de cada commit.
+Docker	Plataforma para criar e gerenciar o ambiente da aplicação em contêineres.
+Pino	Logger de alta performance para registrar eventos e erros.
+Dotenv	Módulo para carregar variáveis de ambiente a partir de um arquivo .env.
 
 Exportar para as Planilhas
-Pré-requisitos
-Para executar este projeto, você precisará ter as seguintes ferramentas instaladas:
+🚀 Começando
+Siga os passos abaixo para executar o projeto em sua máquina.
 
-Node.js (versão 20 ou superior)
+Pré-requisitos
+Node.js (v20 ou superior)
 
 Docker e Docker Compose
 
 Instalação e Execução
-Você pode rodar o projeto de duas maneiras:
-
 1. Com Docker (Recomendado)
-Este método é o mais simples, pois o Docker gerencia todo o ambiente e as dependências para você.
+Este é o método mais simples e garante que o ambiente seja idêntico ao de produção.
 
 Bash
 
 # 1. Clone o repositório
-git clone <url-do-repositorio>
+git clone https://github.com/DedeOli21/ScrapperHotel.git
 
 # 2. Navegue até a pasta do projeto
-cd asksuite-test
+cd ScrapperHotel
 
 # 3. Construa a imagem e inicie o contêiner
 docker-compose up --build
-A aplicação estará rodando em http://localhost:8080.
+A API estará disponível em http://localhost:8080.
 
 2. Localmente
 Bash
 
-# 1. Clone o repositório
-git clone <url-do-repositorio>
+# 1. Clone o repositório e entre na pasta
+git clone https://github.com/DedeOli21/ScrapperHotel.git
+cd ScrapperHotel
 
-# 2. Navegue até a pasta do projeto
-cd asksuite-test
-
-# 3. Instale as dependências
+# 2. Instale as dependências
 npm install
 
-# 4. Crie o arquivo de variáveis de ambiente
+# 3. Crie o arquivo de variáveis de ambiente
 cp .env.example .env
 
-# 5. Inicie o servidor em modo de desenvolvimento
+# 4. Inicie o servidor em modo de desenvolvimento
 npm run dev
-A aplicação estará rodando em http://localhost:8080.
+A API estará disponível em http://localhost:8080.
 
-
-Claro! Aqui está uma documentação completa no formato README.md para o seu projeto, detalhando as ferramentas e a estrutura de alto nível, como solicitado.
-
-Desafio Asksuite - Web Scraper de Quartos de Hotel
-Este projeto consiste em uma API Node.js cuja principal função é realizar web scraping em um site de reservas de hotel. A aplicação busca por quartos disponíveis com base em datas de check-in e check-out fornecidas pelo usuário.
-
-O projeto foi desenvolvido seguindo os princípios da Arquitetura Limpa e SOLID, garantindo um código desacoplado, testável e de fácil manutenção.
-
-Estrutura do Projeto
-A arquitetura do projeto é dividida em camadas, cada uma com uma responsabilidade clara, garantindo a separação de conceitos e o fluxo de dependência correto (de fora para dentro).
-
-domain: A camada mais interna da aplicação. Contém as entidades de negócio puras (como Room), objetos de valor (DateRange) e erros de domínio. Esta camada não tem conhecimento sobre o restante da aplicação.
-
-application: Contém a lógica de negócio específica da aplicação, orquestrada através de Casos de Uso (Use Cases). Ela define as interfaces (contratos) que a camada de infraestrutura deve implementar.
-
-infrastructure: A camada mais externa, responsável por todos os detalhes técnicos e interação com o mundo exterior. Aqui ficam as implementações de serviços externos (como o scraper com Puppeteer), controllers da API, rotas, e configurações do servidor.
-
-main: A raiz da composição. É o ponto de entrada da aplicação, responsável por instanciar e conectar ("injetar") todas as dependências das outras camadas.
-
-Principais Ferramentas
-Ferramenta	Descrição
-Node.js	Ambiente de execução para o JavaScript no servidor.
-Express.js	Framework web minimalista para a criação da API e gerenciamento de rotas.
-Puppeteer	Biblioteca para automação e controle de navegadores headless (Chromium), utilizada para a extração dos dados do site (web scraping).
-Jest	Framework de testes para garantir a qualidade e o funcionamento correto da lógica de negócio e dos componentes da aplicação.
-ESLint	Ferramenta para análise estática de código que ajuda a encontrar e corrigir problemas de padronização e potenciais bugs.
-Husky & lint-staged	Ferramentas que automatizam a verificação de qualidade do código (lint e testes) antes de cada commit, garantindo a integridade do repositório.
-Docker	Plataforma de contêineres utilizada para criar um ambiente padronizado e portátil para a aplicação, facilitando a execução em qualquer máquina.
-Dotenv	Módulo para carregar variáveis de ambiente a partir de um arquivo .env, mantendo as configurações sensíveis fora do código.
-Pino	Logger de alta performance para registrar eventos e erros da aplicação de forma estruturada.
-
-Exportar para as Planilhas
-Pré-requisitos
-Para executar este projeto, você precisará ter as seguintes ferramentas instaladas:
-
-Node.js (versão 20 ou superior)
-
-Docker e Docker Compose
-
-Instalação e Execução
-Você pode rodar o projeto de duas maneiras:
-
-1. Com Docker (Recomendado)
-Este método é o mais simples, pois o Docker gerencia todo o ambiente e as dependências para você.
-
-Bash
-
-# 1. Clone o repositório
-git clone <url-do-repositorio>
-
-# 2. Navegue até a pasta do projeto
-cd asksuite-test
-
-# 3. Construa a imagem e inicie o contêiner
-docker-compose up --build
-A aplicação estará rodando em http://localhost:8080.
-
-2. Localmente
-Bash
-
-# 1. Clone o repositório
-git clone <url-do-repositorio>
-
-# 2. Navegue até a pasta do projeto
-cd asksuite-test
-
-# 3. Instale as dependências
-npm install
-
-# 4. Crie o arquivo de variáveis de ambiente
-cp .env.example .env
-
-# 5. Inicie o servidor em modo de desenvolvimento
-npm run dev
-A aplicação estará rodando em http://localhost:8080.
-
--- Scripts Disponíveis
+📜 Scripts Disponíveis
 npm start: Inicia a aplicação em modo de produção.
 
-npm run dev: Inicia a aplicação em modo de desenvolvimento com nodemon, que reinicia o servidor automaticamente a cada alteração no código.
+npm run dev: Inicia a aplicação com nodemon para desenvolvimento.
 
-npm test: Executa a suíte de testes completa uma vez.
+npm test: Executa a suíte de testes completa.
 
-npm run test:watch: Executa os testes em modo "watch", rodando novamente a cada alteração nos arquivos.
+npm run test:watch: Executa os testes em modo "watch".
 
-npm run test:coverage: Executa os testes e gera um relatório de cobertura de código.
+npm run test:coverage: Executa os testes e gera um relatório de cobertura.
 
-
-
-
+⚙️ Qualidade de Código
+O projeto utiliza um hook de pre-commit com Husky. Antes de cada commit, o ESLint e o Jest são executados automaticamente. Se houver erros de lint ou se algum teste falhar, o commit será bloqueado, garantindo a integridade e a qualidade do código no repositório.
